@@ -6,12 +6,13 @@
     <PackageTags>GraphQL;json;api</PackageTags>
   </PropertyGroup>
 
+<!--  <ItemGroup>-->
+<!--    <None Include="..\..\assets\logo.64x64.png" Pack="true" PackagePath="\" />-->
+<!--  </ItemGroup>-->
+
   <ItemGroup>
-    <None Include="..\..\assets\logo.64x64.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="GraphQL" Version="3.0.0" />
+<!--    <PackageReference Include="GraphQL" Version="3.0.0" />-->
+    <PackageReference Include="GraphQL" Version="4.0.0-preview-247" />
   </ItemGroup>
 
 </Project>

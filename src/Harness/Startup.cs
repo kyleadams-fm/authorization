@@ -1,3 +1,5 @@
+using System.Data;
+using System.Linq;
 using GraphQL.Authorization;
 using GraphQL.Server;
 using GraphQL.Types;
@@ -35,8 +37,9 @@ namespace Harness
                   }
                 ";
                 var schema = Schema.For(definitions, builder => builder.Types.Include<Query>());
-                schema.FindType("User").AuthorizeWith("AdminPolicy");
+                schema.AllTypes["User"].AuthorizeWith("AdminPolicy");
                 return schema;
+
             });
 
             // extension method defined in this project

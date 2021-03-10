@@ -39,7 +39,7 @@ namespace GraphQL.Authorization
             var tasks = new List<Task>();
 
             requiredPolicies?.ToList()
-                .Apply(requiredPolicy =>
+                .ForEach(requiredPolicy =>
                 {
                     var authorizationPolicy = _settings.GetPolicy(requiredPolicy);
                     if (authorizationPolicy == null)
@@ -48,7 +48,7 @@ namespace GraphQL.Authorization
                     }
                     else
                     {
-                        authorizationPolicy.Requirements.Apply(r =>
+                        authorizationPolicy.Requirements.ToList().ForEach(r =>
                         {
                             var task = r.Authorize(context);
                             tasks.Add(task);

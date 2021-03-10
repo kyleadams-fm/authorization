@@ -25,7 +25,7 @@ namespace GraphQL.Authorization
         {
             List<IAuthorizationPolicy> found = null;
 
-            policies?.Apply(name =>
+            policies?.ToList().ForEach(name =>
             {
                 var policy = GetPolicy(name);
                 if (policy != null)
